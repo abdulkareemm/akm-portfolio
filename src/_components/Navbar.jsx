@@ -1,8 +1,8 @@
-"use client"
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useState } from 'react'
-import NavLink from './NavLink';
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import React, { useState } from "react";
+import NavLink from "./NavLink";
 import { motion } from "framer-motion";
 
 const links = [
@@ -55,7 +55,6 @@ const Navbar = () => {
       },
     },
   };
-
   const listItemVariants = {
     closed: {
       x: -10,
@@ -153,6 +152,6 @@ const Navbar = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
