@@ -4,7 +4,7 @@ import { motion, useInView, useScroll } from "framer-motion";
 import Brain from "@/_components/brain";
 import Image from "next/image";
 
-export default function page() {
+export default function About() {
   const containerRef = useRef();
 
   const { scrollYProgress } = useScroll({ container: containerRef });
@@ -50,7 +50,7 @@ export default function page() {
             {/* BIOGRAPHY IMAGE */}
             <Image
               src="/profile1.png"
-              alt=""
+              alt="profile"
               width={112}
               height={112}
               className="w-28 h-28 rounded-full object-cover bg-red-400/20"
@@ -68,12 +68,12 @@ export default function page() {
             </p>
             {/* BIOGRAPHY QUOTE */}
             <span className="italic">
-              Let's embark on a journey together to turn your vision into a
+              Let&apos;s embark on a journey together to turn your vision into a
               digital reality that exceeds expectations
             </span>
             {/* BIOGRAPHY SIGN SVG*/}
             <div className="self-end">
-              <Image src="/sign1.png" width={112} height={112}/>
+              <Image src="/sign1.png" width={112} height={112} />
             </div>
             {/* BIOGRAPHY SCROLL SVG */}
             <motion.svg
@@ -220,16 +220,16 @@ export default function page() {
                 <div className="w-1/3 ">
                   {/* JOB TITLE */}
                   <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
-                    Freelancer{" "}
+                    Freelancer
                   </div>
                   {/* JOB DESC */}
                   <div className="p-3 text-sm italic">
                     I provided web solutions, applying a range of technologies
-                    to address client requirements.{" "}
+                    to address client requirements.
                   </div>
                   {/* JOB DATE */}
                   <div className="p-3 text-red-400 text-sm font-semibold">
-                    2022 - Present{" "}
+                    2022 - Present
                   </div>
                 </div>
               </div>
