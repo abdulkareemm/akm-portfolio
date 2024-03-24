@@ -15,28 +15,46 @@ const items = [
   },
   {
     id: 2,
-    color: "from-blue-600 to-red-300",
+    color: "from-blue-600 to-blue-300",
     title: "Gym Landing Page",
     desc: "The gym landing page created with React offers a dynamic and user-friendly interface for visitors interested in fitness and wellness. The page incorporates modern design elements and smooth navigation to provide an engaging experience",
     img: "/pro.png",
     demo: "https://abdulkareemm.github.io/gym-website/",
     code: "https://github.com/abdulkareemm/gym-website",
   },
+  {
+    id: 3,
+    color: "from-blue-300 to-red-300",
+    title: "Data Warehouse",
+    desc: "The Data Warehouse website is a streamlined platform designed to display the application's status, features, and testimonials. Utilizing Framer Motion, it incorporates captivating animations and slides to present testimonials, enhancing user engagement and experience.",
+    img: "/data-warehouse.png",
+    demo: "https://abdulkareemm.github.io/data-warehouse/",
+    code: "https://github.com/abdulkareemm/data-warehouse",
+  },
+  {
+    id: 4,
+    color: "from-red-300 to-slate-100",
+    title: "AKM Teach",
+    desc: "AKM-Teach is an innovative online learning platform offering a diverse array of expert-led courses to enhance your skills and knowledge. With engaging content and flexible learning options.",
+    img: "/akm-teach.png",
+    demo: "https://abdulkareemm.github.io/akm-teach/",
+    code: "https://github.com/abdulkareemm/akm-teach",
+  },
 ];
 
 export default function Portfolio() {
   const ref = useRef();
   const { scrollYProgress } = useScroll({ target: ref });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-88%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"]);
 
   return (
     <motion.div
       className="h-full"
       initial={{ y: "-200vh" }}
       animate={{ y: "0%" }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 2 }}
     >
-      <div className="h-[1000vh] w-[calc(screen-6rem)] relative" ref={ref}>
+      <div className="h-[600vh] w-[calc(screen-6rem)] relative" ref={ref}>
         <div className="w-[calc(screen-6rem)] h-[calc(100vh-6rem)] flex items-center justify-center text-8xl text-center">
           My Works
         </div>
