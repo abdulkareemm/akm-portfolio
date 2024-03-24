@@ -6,7 +6,16 @@ import { useRef } from "react";
 const items = [
   {
     id: 1,
-    color: "from-red-300 to-blue-300",
+    color: "from-red-300 to-blue-600",
+    title: "Nike Store",
+    desc: "Nike's e-commerce site, with intuitive navigation and a sleek design, allows customers to easily browse the latest collections, customize their shoes and make purchases with confidence. The site provides detailed product descriptions, sizing information and reviews.",
+    img: "/Nike-store.png",
+    demo: "https://abdulkareemm.github.io/nike-store/",
+    code: "https://github.com/abdulkareemm/nike-store",
+  },
+  {
+    id: 2,
+    color: "from-blue-600 to-red-300",
     title: "Gym Landing Page",
     desc: "The gym landing page created with React offers a dynamic and user-friendly interface for visitors interested in fitness and wellness. The page incorporates modern design elements and smooth navigation to provide an engaging experience",
     img: "/pro.png",
@@ -39,14 +48,14 @@ export default function Portfolio() {
                 className={`h-screen w-[calc(screen-6rem)] flex items-center justify-center bg-gradient-to-r ${item.color}`}
                 key={item.id}
               >
-                <div className="flex flex-col gap-8  h-[97vh]  lg:min-w-[900px] p-4">
+                <div className="flex flex-col gap-8  h-[97vh]  lg:min-w-[1000px] p-4">
                   <h1 className="text-xl font-bold md:text-2xl lg:text-4xl xl:text-6xl text-slate-100">
                     {item.title}
                   </h1>
                   <div className="relative rounded-md overflow-hidden w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[750px] xl:h-[480px]">
                     <Image src={item.img} alt="" fill className="w-full" />
                   </div>
-                  <p className="w-80 md:w96 lg:w-[500px] lg:text-lg xl:w-[600px] text-black/70">
+                  <p className="w-80 md:w96 lg:w-[500px] lg:text-lg xl:w-[700px] text-black/70">
                     {item.desc}
                   </p>
                   <div className="flex flex-row gap-8 items-center w-full  p-0">
