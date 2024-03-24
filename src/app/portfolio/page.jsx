@@ -9,7 +9,7 @@ const items = [
     color: "from-red-300 to-blue-300",
     title: "Gym Landing Page",
     desc: "The gym landing page created with React offers a dynamic and user-friendly interface for visitors interested in fitness and wellness. The page incorporates modern design elements and smooth navigation to provide an engaging experience",
-    img: "/pro1.png",
+    img: "/pro.png",
     demo: "https://abdulkareemm.github.io/gym-website/",
     code: "https://github.com/abdulkareemm/gym-website",
   },
