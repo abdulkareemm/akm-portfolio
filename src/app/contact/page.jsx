@@ -70,7 +70,7 @@ const ContactPage = () => {
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
-      <div className="min-h-[568px] h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+      <div className="min-h-[568px] h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 z-50">
         {/* TEXT CONTAINER */}
         <div className="min-h-[150px] lg:h-full lg:w-1/2 flex items-center justify-center text-3xl md:text-6xl">
           <div>
@@ -98,20 +98,20 @@ const ContactPage = () => {
           className=" lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-sm md:text-xl flex flex-col gap-8 justify-center p-4 md:p-24"
         >
           <span>Dear AKM Dev,</span>
-          <input
-            className="bg-transparent border-b-2 border-b-black outline-none p-3"
+          <textarea
+            rows={3}
+            className="bg-transparent border-b-2 border-b-black outline-none resize-none"
             name="user_message"
             value={inputValue.user_message}
             onChange={handelInputChange}
             placeholder="say hello"
-            type="text"
           />
           <span>My mail address is:</span>
           <input
             name="user_email"
             value={inputValue.user_email}
             type="text"
-            className="bg-transparent border-b-2 border-b-black outline-none p-3"
+            className="bg-transparent border-b-2 border-b-black outline-none"
             onChange={handelInputChange}
             placeholder="jhon@example.com"
           />
