@@ -98,20 +98,20 @@ const ContactPage = () => {
           className=" lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-sm md:text-xl flex flex-col gap-8 justify-center p-4 md:p-24"
         >
           <span>Dear AKM Dev,</span>
-          <textarea
-            rows={3}
-            className="bg-transparent border-b-2 border-b-black outline-none resize-none"
+          <input
+            className="bg-transparent border-b-2 border-b-black outline-none p-3"
             name="user_message"
             value={inputValue.user_message}
             onChange={handelInputChange}
             placeholder="say hello"
+            type="text"
           />
           <span>My mail address is:</span>
           <input
             name="user_email"
             value={inputValue.user_email}
             type="text"
-            className="bg-transparent border-b-2 border-b-black outline-none"
+            className="bg-transparent border-b-2 border-b-black outline-none p-3"
             onChange={handelInputChange}
             placeholder="jhon@example.com"
           />
