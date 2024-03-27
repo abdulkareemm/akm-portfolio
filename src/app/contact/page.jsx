@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const isEmailValid = (email) => {
   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -24,8 +26,6 @@ const ContactPage = () => {
     user_message: "",
     user_email: "",
   });
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
   const text = "Say Hello";
 
   const handelInputChange = (e) => {
@@ -38,8 +38,6 @@ const ContactPage = () => {
     e.preventDefault();
     const {ok,msg}  = validateForm({...inputValue});
     if(ok){
-      setError(false);
-      setSuccess(false);
       emailjs
         .sendForm(
           process.env.NEXT_PUBLIC_SERVICE_ID,
@@ -49,16 +47,16 @@ const ContactPage = () => {
         )
         .then(
           () => {
-            setSuccess(true);
+            toast.success("Your message has been sent successfully!");
             form.current.reset();
           },
           () => {
-            setError("Something went wrong!");
+            toast.error("Something went wrong!");
           }
         );
     }
     else{
-      setError(msg)
+      toast.error(msg)
     }
 
   };
@@ -70,7 +68,8 @@ const ContactPage = () => {
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
-      <div className="min-h-[568px] h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 z-50">
+      <div className="min-h-[585px] h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 z-50">
+        
         {/* TEXT CONTAINER */}
         <div className="min-h-[300px] lg:h-full lg:w-1/2 flex items-center justify-center text-3xl md:text-6xl">
           <div>
@@ -99,7 +98,7 @@ const ContactPage = () => {
         >
           <span>Dear AKM Dev,</span>
           <textarea
-          rows={3}
+            rows={3}
             className="bg-transparent border-b-2 border-b-black outline-none resize-none"
             name="user_message"
             value={inputValue.user_message}
@@ -119,12 +118,6 @@ const ContactPage = () => {
           <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4">
             Send
           </button>
-          {success && (
-            <span className="text-green-600 font-semibold">
-              Your message has been sent successfully!
-            </span>
-          )}
-          {error && <span className="text-red-600 font-semibold">{error}</span>}
         </form>
       </div>
     </motion.div>

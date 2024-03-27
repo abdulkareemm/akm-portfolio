@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import TransitionProvider from "@/_components/TransitionProvider";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <TransitionProvider>{children}</TransitionProvider>
+        <TransitionProvider>
+          <ToastContainer position="bottom-left" autoClose={3000} />
+          {children}
+        </TransitionProvider>
       </body>
     </html>
   );
