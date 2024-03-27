@@ -87,7 +87,7 @@ const Navbar = () => {
         </Link>
       </div>
       {/* SOCIAL */}
-      <div className="hidden md:flex gap-4 w-1/3">
+      <div className="hidden md:flex gap-4 w-1/3 ">
         <Link href="https://github.com/abdulkareemm/">
           <Image src="/github.png" alt="" width={24} height={24} />
         </Link>
@@ -105,7 +105,7 @@ const Navbar = () => {
         </Link>
       </div>
       {/* RESPONSIVE MENU */}
-      <div className="md:hidden">
+      <div className="md:hidden z-50">
         {/* MENU BUTTON */}
         <button
           className="w-10 h-8 flex flex-col justify-between z-50 relative"
@@ -133,12 +133,12 @@ const Navbar = () => {
             variants={listVariants}
             initial="closed"
             animate="opened"
-            className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
+            className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-4 text-4xl z-40"
           >
             {links.map((link) => (
               <motion.div
                 variants={listItemVariants}
-                className=""
+                className="hover:bg-gradient-to-b from-blue-100 to-red-100 hover:text-slate-900 w-[90vw] text-center py-2"
                 key={link.title}
               >
                 <Link href={link.url}>{link.title}</Link>
