@@ -2,11 +2,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
 const items = [
   {
     id: 1,
-    color: "from-red-300 to-blue-600",
+    color: "#009688",
     title: "Nike Store",
     desc: "Nike's e-commerce site, with intuitive navigation and a sleek design, allows customers to easily browse the latest collections, customize their shoes and make purchases with confidence. The site provides detailed product descriptions, sizing information and reviews.",
     img: "/Nike-store.png",
@@ -15,7 +14,7 @@ const items = [
   },
   {
     id: 2,
-    color: "from-blue-600 to-blue-300",
+    color: "#ff3e7f",
     title: "Gym Landing Page",
     desc: "The gym landing page created with React offers a dynamic and user-friendly interface for visitors interested in fitness and wellness. The page incorporates modern design elements and smooth navigation to provide an engaging experience",
     img: "/pro.png",
@@ -24,7 +23,7 @@ const items = [
   },
   {
     id: 3,
-    color: "from-blue-300 to-red-300",
+    color: "#03a9f4",
     title: "Data Warehouse",
     desc: "The Data Warehouse website is a streamlined platform designed to display the application's status, features, and testimonials. Utilizing Framer Motion, it incorporates captivating animations and slides to present testimonials, enhancing user engagement and experience.",
     img: "/data-warehouse.png",
@@ -33,7 +32,7 @@ const items = [
   },
   {
     id: 4,
-    color: "from-red-300 to-slate-100",
+    color: "#ff3e7f",
     title: "AKM Teach",
     desc: "AKM-Teach is an innovative online learning platform offering a diverse array of expert-led courses to enhance your skills and knowledge. With engaging content and flexible learning options.",
     img: "/akm-teach.png",
@@ -43,10 +42,6 @@ const items = [
 ];
 
 export default function Portfolio() {
-  const ref = useRef();
-  const { scrollYProgress } = useScroll({ target: ref });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"]);
-
   return (
     <motion.div
       className="h-full"
@@ -54,99 +49,72 @@ export default function Portfolio() {
       animate={{ y: "0%" }}
       transition={{ duration: 2 }}
     >
-      <div className="h-[600vh] w-[calc(screen-6rem)] relative" ref={ref}>
-        <div className="w-[calc(screen-6rem)] h-[calc(100vh-6rem)] flex items-center justify-center text-8xl text-center">
-          My Works
-        </div>
-        <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
-          <motion.div style={{ x }} className="flex">
-            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300" />
-            {items.map((item) => (
-              <div
-                className={`h-screen w-[calc(screen-6rem)] flex items-center justify-center bg-gradient-to-r ${item.color}`}
-                key={item.id}
-              >
-                <div className="flex flex-col gap-8  h-[97vh]  lg:min-w-[1000px] p-4">
-                  <h1 className="text-xl font-bold md:text-2xl lg:text-4xl xl:text-6xl text-slate-100">
-                    {item.title}
-                  </h1>
-                  <div className="relative rounded-md overflow-hidden w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[750px] xl:h-[480px]">
-                    <Image src={item.img} alt="" fill className="w-full" />
-                  </div>
-                  <p className="w-80 md:w96 lg:w-[500px] lg:text-lg xl:w-[700px] text-black/70">
-                    {item.desc}
-                  </p>
-                  <div className="flex flex-row gap-8 items-center w-full  p-0">
-                    {item.code ? (
-                      <Link href={item.code} target="_blank" className="">
-                        <button
-                          className="p-2 text-sm md:text-md lg:p-4 lg:text-lg shadow-md shadow-stone-600
-                      bg-white text-slate-700 font-semibold  rounded hover:scale-105 cursor-pointer"
-                        >
-                          Code
-                        </button>
-                      </Link>
-                    ) : (
-                      <button
-                        className="p-2 text-sm md:text-md lg:p-4 lg:text-lg shadow-md shadow-stone-600
-                      bg-white/20 text-slate-700 font-semibold  rounded cursor-not-allowed"
-                        disabled={true}
-                      >
-                        Code
-                      </button>
-                    )}
-                    {item.demo ? (
-                      <Link href={item.demo} target="_blank" className="">
-                        <button
-                          className="p-2 text-sm md:text-md lg:p-4 lg:text-lg shadow-md shadow-stone-600
-                      bg-white text-slate-700 font-semibold  rounded hover:scale-105 cursor-pointer"
-                        >
-                          Demo
-                        </button>
-                      </Link>
-                    ) : (
-                      <button
-                        className="p-2 text-sm md:text-md lg:p-4 lg:text-lg shadow-md shadow-stone-600
-                      bg-white/20 text-slate-700 font-semibold  rounded cursor-not-allowed"
-                        disabled={true}
-                      >
-                        Demo
-                      </button>
-                    )}
+      <div>
+        <div className="relative z-50 overflow-y-scroll h-[calc(100vh-6rem)]">
+          <h1 className="text-2xl md:text-6xl text-center mt-4 md:mt-12 font-bold">
+            My Works
+          </h1>
+          <div className="relative h-full flex items-center justify-center md:justify-between px-0 md:px-[50px] lg:px-[150px] flex-wrap gap-8 mt-[100px]">
+            {items.map((item) => {
+              console.log(item.color)
+              return (
+                <div className="h-[400px]" key={item.id}>
+                  <div
+                    className={`card relative flex justify-center items-start min-w-[370px]  h-[300px] 
+                   bg-white rounded-md hover:h-[400px] duration-500`}
+                  >
+                    <div className="imgBx absolute top-5 rounded-md duration-500 min-w-[350px] h-[220px] bg-[#333] overflow-hidden">
+                      <Image src={item.img} fill alt="project" />
+                    </div>
+                    <div className="content">
+                      <h2 className={`text-2xl font-semibold text-[#03a9f4]`}>
+                        {item.title}
+                      </h2>
+                      <p className="text-sm mt-1 h-[155px]">{item.desc}</p>
+                      <div className="flex justify-between items-center px-[50px] py-3">
+                        {item.code ? (
+                          <Link href={item.demo} target="_blank" className="">
+                            <button
+                              className="py-2 px-4  text-sm md:text-md  lg:text-lg 
+                      bg-blue-400 text-white font-semibold  rounded hover:scale-105 cursor-pointer"
+                            >
+                              Code
+                            </button>
+                          </Link>
+                        ) : (
+                          <button
+                            className="py-2 px-4 text-sm md:text-md  lg:text-lg 
+                      bg-blue-400/20 text-slate-700 font-semibold  rounded cursor-not-allowed"
+                            disabled={true}
+                          >
+                            Code
+                          </button>
+                        )}
+                        {item.demo ? (
+                          <Link href={item.demo} target="_blank" className="">
+                            <button
+                              className="py-2 px-4  text-sm md:text-md  lg:text-lg 
+                      bg-purple-400 text-white font-semibold  rounded hover:scale-105 cursor-pointer"
+                            >
+                              Demo
+                            </button>
+                          </Link>
+                        ) : (
+                          <button
+                            className="py-2 px-4  text-sm md:text-md lg:text-lg 
+                      bg-purple-400/20 text-slate-700 font-semibold  rounded cursor-not-allowed"
+                            disabled={true}
+                          >
+                            Demo
+                          </button>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
-      <div className="w-screen h-screen flex flex-col gap-16 items-center justify-center text-center">
-        <h1 className="text-8xl">Do you have a project?</h1>
-        <div className="relative">
-          <motion.svg
-            animate={{ rotate: 360 }}
-            transition={{ duration: 8, ease: "linear", repeat: Infinity }}
-            viewBox="0 0 300 300"
-            className="w-64 h-64 md:w-[500px] md:h-[500px] "
-          >
-            <defs>
-              <path
-                id="circlePath"
-                d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "
-              />
-            </defs>
-            <text fill="#000">
-              <textPath xlinkHref="#circlePath" className="text-xl">
-                Front-end and Back-end Developer
-              </textPath>
-            </text>
-          </motion.svg>
-          <Link
-            href="/contact"
-            className="w-16 h-16 md:w-28 md:h-28 absolute top-0 left-0 right-0 bottom-0 m-auto bg-black text-white rounded-full flex items-center justify-center"
-          >
-            Hire Me
-          </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
     </motion.div>
