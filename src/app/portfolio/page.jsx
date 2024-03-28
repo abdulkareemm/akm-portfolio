@@ -73,7 +73,7 @@ export default function Portfolio() {
                     </p>
                     <div className="flex justify-between items-center px-[50px] py-3">
                       {item.code ? (
-                        <Link href={item.demo} target="_blank" className="">
+                        <Link href={item.code} target="_blank" className="">
                           <button
                             className="py-2 px-4  text-sm md:text-md  lg:text-lg 
                       bg-blue-400 text-white font-semibold  rounded hover:scale-105 cursor-pointer"
