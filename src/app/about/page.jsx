@@ -180,12 +180,12 @@ export default function About() {
                     Junior React Developer
                   </div>
                   {/* JOB DESC */}
-                  <div className="p-3 text-sm italic">
+                  <div className="p-3 text-xs md:text-base italic">
                     I had the opportunity to work on a range of projects,
                     utilizing my skills in front-end development
                   </div>
                   {/* JOB DATE */}
-                  <div className="p-3 text-red-400 text-sm font-semibold">
+                  <div className="p-3 text-red-400 text-xs md:text-base font-semibold">
                     06/2021 03/2023
                   </div>
                   {/* JOB COMPANY */}
@@ -223,12 +223,12 @@ export default function About() {
                     Freelancer
                   </div>
                   {/* JOB DESC */}
-                  <div className="p-3 text-sm italic">
+                  <div className="p-3 text-xs md:text-base italic">
                     I provided web solutions, applying a range of technologies
                     to address client requirements.
                   </div>
                   {/* JOB DATE */}
-                  <div className="p-3 text-red-400 text-sm font-semibold">
+                  <div className="p-3 text-red-400 text-xs md:text-base font-semibold">
                     2022 - Present
                   </div>
                 </div>

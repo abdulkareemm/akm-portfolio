@@ -49,71 +49,101 @@ export default function Portfolio() {
       animate={{ y: "0%" }}
       transition={{ duration: 2 }}
     >
-      <div>
-        <div className="relative z-50 overflow-y-scroll h-[calc(100vh-6rem)]">
-          <h1 className="text-2xl md:text-6xl text-center mt-4 md:mt-12 font-bold">
-            My Works
-          </h1>
-          <div className="relative h-full flex items-center justify-center md:justify-between px-0 md:px-[50px] lg:px-[150px] flex-wrap gap-8 mt-[100px]">
-            {items.map((item) => {
-              console.log(item.color)
-              return (
-                <div className="h-[400px]" key={item.id}>
-                  <div
-                    className={`card relative flex justify-center items-start min-w-[370px]  h-[300px] 
+      <div className="relative flex flex-col space-y-40 ">
+        <h1 className="text-2xl md:text-6xl text-center font-bold">My Works</h1>
+        <div className="bg-gradient-to-b from-blue-100 to-red-100 h-full flex items-center justify-center lg:justify-between  xl:px-[50px]  flex-wrap gap-8 ">
+          {items.map((item) => {
+            return (
+              <div className="h-[400px]" key={item.id}>
+                <div
+                  className={`card relative flex justify-center items-start min-w-[370px] md:w-[500px]  h-[300px] 
                    bg-white rounded-md hover:h-[400px] duration-500`}
-                  >
-                    <div className="imgBx absolute top-5 rounded-md duration-500 min-w-[350px] h-[220px] bg-[#333] overflow-hidden">
-                      <Image src={item.img} fill alt="project" />
-                    </div>
-                    <div className="content">
-                      <h2 className={`text-2xl font-semibold text-[#03a9f4]`}>
-                        {item.title}
-                      </h2>
-                      <p className="text-sm mt-1 h-[155px]">{item.desc}</p>
-                      <div className="flex justify-between items-center px-[50px] py-3">
-                        {item.code ? (
-                          <Link href={item.demo} target="_blank" className="">
-                            <button
-                              className="py-2 px-4  text-sm md:text-md  lg:text-lg 
-                      bg-blue-400 text-white font-semibold  rounded hover:scale-105 cursor-pointer"
-                            >
-                              Code
-                            </button>
-                          </Link>
-                        ) : (
+                >
+                  <div className="imgBx absolute top-5 rounded-md duration-500 min-w-[350px] md:w-[450px] h-[220px] bg-[#333] overflow-hidden">
+                    <Image src={item.img} fill alt="project" />
+                  </div>
+                  <div className="content">
+                    <h2
+                      className={`text-2xl md:text-3xl font-semibold text-[#03a9f4]`}
+                    >
+                      {item.title}
+                    </h2>
+                    <p className="text-sm md:text-base mt-1 h-[155px]">
+                      {item.desc}
+                    </p>
+                    <div className="flex justify-between items-center px-[50px] py-3">
+                      {item.code ? (
+                        <Link href={item.demo} target="_blank" className="">
                           <button
-                            className="py-2 px-4 text-sm md:text-md  lg:text-lg 
-                      bg-blue-400/20 text-slate-700 font-semibold  rounded cursor-not-allowed"
-                            disabled={true}
+                            className="py-2 px-4  text-sm md:text-md  lg:text-lg 
+                      bg-blue-400 text-white font-semibold  rounded hover:scale-105 cursor-pointer"
                           >
                             Code
                           </button>
-                        )}
-                        {item.demo ? (
-                          <Link href={item.demo} target="_blank" className="">
-                            <button
-                              className="py-2 px-4  text-sm md:text-md  lg:text-lg 
-                      bg-purple-400 text-white font-semibold  rounded hover:scale-105 cursor-pointer"
-                            >
-                              Demo
-                            </button>
-                          </Link>
-                        ) : (
+                        </Link>
+                      ) : (
+                        <button
+                          className="py-2 px-4 text-sm md:text-md  lg:text-lg 
+                      bg-blue-400/20 text-slate-700 font-semibold  rounded cursor-not-allowed"
+                          disabled={true}
+                        >
+                          Code
+                        </button>
+                      )}
+                      {item.demo ? (
+                        <Link href={item.demo} target="_blank" className="">
                           <button
-                            className="py-2 px-4  text-sm md:text-md lg:text-lg 
-                      bg-purple-400/20 text-slate-700 font-semibold  rounded cursor-not-allowed"
-                            disabled={true}
+                            className="py-2 px-4  text-sm md:text-md  lg:text-lg 
+                      bg-purple-400 text-white font-semibold  rounded hover:scale-105 cursor-pointer"
                           >
                             Demo
                           </button>
-                        )}
-                      </div>
+                        </Link>
+                      ) : (
+                        <button
+                          className="py-2 px-4  text-sm md:text-md lg:text-lg 
+                      bg-purple-400/20 text-slate-700 font-semibold  rounded cursor-not-allowed"
+                          disabled={true}
+                        >
+                          Demo
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            );
+          })}
+        </div>
+        <div className="flex flex-col  mt-1 gap-16 h-[400px]  bg-white items-center justify-center text-center">
+          <h1 className="text-xl md:text-2xl lg:text-6xl xl:text-8xl mt-4">
+            Do you have a project?
+          </h1>
+          <div className="relative">
+            <motion.svg
+              animate={{ rotate: 360 }}
+              transition={{ duration: 8, ease: "linear", repeat: Infinity }}
+              viewBox="0 0 300 300"
+              className="w-64 h-64 md:w-[500px] md:h-[500px] "
+            >
+              <defs>
+                <path
+                  id="circlePath"
+                  d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "
+                />
+              </defs>
+              <text fill="#000">
+                <textPath xlinkHref="#circlePath" className="text-xl">
+                  Front-end and Back-end Developer
+                </textPath>
+              </text>
+            </motion.svg>
+            <Link
+              href="/contact"
+              className="w-16 h-16 md:w-28 md:h-28 absolute top-0 left-0 right-0 bottom-0 m-auto bg-black text-white rounded-full flex items-center justify-center"
+            >
+              Hire Me
+            </Link>
           </div>
         </div>
       </div>

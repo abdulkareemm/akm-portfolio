@@ -103,7 +103,7 @@ const ContactPage = () => {
             name="user_message"
             value={inputValue.user_message}
             onChange={handelInputChange}
-            placeholder="say hello"
+            placeholder="Hi Kreem"
           />
           <span>My mail address is:</span>
           <input
@@ -112,7 +112,7 @@ const ContactPage = () => {
             type="text"
             className="bg-transparent border-b-2 border-b-black outline-none"
             onChange={handelInputChange}
-            placeholder="jhon@example.com"
+            placeholder="Kreem@example.com"
           />
           <span>Regards</span>
           <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4">
