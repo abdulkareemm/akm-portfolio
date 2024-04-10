@@ -39,6 +39,15 @@ const items = [
     demo: "https://abdulkareemm.github.io/akm-teach/",
     code: "https://github.com/abdulkareemm/akm-teach",
   },
+  {
+    id: 8,
+    color: "#ff3e7f",
+    title: "AKM Homy",
+    desc: "Akm Homy page built with React provides a dynamic and easy-to-use interface for visitors interested in real estate.The page includes modern design elements and smooth navigation to provide an engaging viewing experience.",
+    img: "/akm-homy.png",
+    demo: "https://abdulkareemm.github.io/akm-homy/",
+    code: "https://github.com/abdulkareemm/akm-homy",
+  },
 ];
 
 export default function Portfolio() {
