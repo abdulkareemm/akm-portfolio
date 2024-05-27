@@ -186,7 +186,7 @@ export default function About() {
                   </div>
                   {/* JOB DATE */}
                   <div className="p-3 text-red-400 text-xs md:text-base font-semibold">
-                    06/2021 03/2023
+                    11/2021 10/2023
                   </div>
                   {/* JOB COMPANY */}
                   <div className="p-1 rounded bg-white text-sm font-semibold w-fit">
